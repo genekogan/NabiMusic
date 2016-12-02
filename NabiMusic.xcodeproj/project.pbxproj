@@ -5084,36 +5084,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>6485295FF2A734B7B9296B54</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>DynamicType.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxGrt/libs/grt/GRT/Util/DynamicType.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>7EC64A02917685253BDF76AF</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>Dict.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxGrt/libs/grt/GRT/Util/Dict.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
 			<key>8A36B6EB670C58D46965BDFB</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -5254,8 +5224,6 @@
 					<string>80645B741C05D65BE7AC378A</string>
 					<string>4FB226C7C57EFC5DB5CD2740</string>
 					<string>8A36B6EB670C58D46965BDFB</string>
-					<string>7EC64A02917685253BDF76AF</string>
-					<string>6485295FF2A734B7B9296B54</string>
 					<string>C26C1BDCD3580DF2C37FBE8D</string>
 					<string>C224897A82D8498695CC5369</string>
 					<string>D69F1B98E736701297F5BC71</string>
@@ -5746,43 +5714,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>503330D5AE7BF5153CD044C7</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>RMSFilter.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxGrt/libs/grt/GRT/PreProcessingModules/RMSFilter.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>7397AF6CD685E5D059B1616A</key>
-			<dict>
-				<key>fileRef</key>
-				<string>D885FB435F1D4CA3FE5F20F6</string>
-				<key>isa</key>
-				<string>PBXBuildFile</string>
-			</dict>
-			<key>D885FB435F1D4CA3FE5F20F6</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.cpp.cpp</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>RMSFilter.cpp</string>
-				<key>path</key>
-				<string>../../../addons/ofxGrt/libs/grt/GRT/PreProcessingModules/RMSFilter.cpp</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
 			<key>65E3412D5ACD7145FC918889</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -6116,8 +6047,6 @@
 					<string>118F1BADDD191815CD43664D</string>
 					<string>769D5C556BC20289914D6ADB</string>
 					<string>65E3412D5ACD7145FC918889</string>
-					<string>D885FB435F1D4CA3FE5F20F6</string>
-					<string>503330D5AE7BF5153CD044C7</string>
 					<string>B2E9FA11A3BAA9AD828595E2</string>
 					<string>D0885E7AE8B3D2AA7D049E0A</string>
 					<string>58928E0EACE6953DB33247E1</string>
@@ -10167,43 +10096,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>CEACDADE4D211510943F7080</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>ofxGrtSettings.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxGrt/src/ofxGrtSettings.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>BA4799B947DAF6111E7172A5</key>
-			<dict>
-				<key>fileRef</key>
-				<string>E87DE76B267C1909A057A6AF</string>
-				<key>isa</key>
-				<string>PBXBuildFile</string>
-			</dict>
-			<key>E87DE76B267C1909A057A6AF</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.cpp.cpp</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>ofxGrtSettings.cpp</string>
-				<key>path</key>
-				<string>../../../addons/ofxGrt/src/ofxGrtSettings.cpp</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
 			<key>4F359AA055597B36BAF65FE4</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -10287,8 +10179,6 @@
 					<string>B07A03B3FEB15C38704C0025</string>
 					<string>8C158E947D86A58A84D2C21D</string>
 					<string>4F359AA055597B36BAF65FE4</string>
-					<string>E87DE76B267C1909A057A6AF</string>
-					<string>CEACDADE4D211510943F7080</string>
 					<string>008380BDB8F8FCF3DABB2A5C</string>
 					<string>CC583750287A23505627B7E3</string>
 				</array>
@@ -11364,17 +11254,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>6948EE371B920CB800B5AC1A</key>
-			<dict>
-				<key>children</key>
-				<array />
-				<key>isa</key>
-				<string>PBXGroup</string>
-				<key>name</key>
-				<string>local_addons</string>
-				<key>sourceTree</key>
-				<string>&lt;group&gt;</string>
-			</dict>
 			<key>BB4B014C10F69532006C3DED</key>
 			<dict>
 				<key>children</key>
@@ -11391,6 +11270,17 @@
 				<string>PBXGroup</string>
 				<key>name</key>
 				<string>addons</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>6948EE371B920CB800B5AC1A</key>
+			<dict>
+				<key>children</key>
+				<array />
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>local_addons</string>
 				<key>sourceTree</key>
 				<string>&lt;group&gt;</string>
 			</dict>
@@ -11553,8 +11443,15 @@
 						<string>../../../addons/ofxCcv/libs/ccv/lib</string>
 						<string>../../../addons/ofxCcv/libs/ccv/lib/osx</string>
 						<string>../../../addons/ofxCcv/src</string>
-						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs</string>
+						<string>../../../addons/ofxCv/libs/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/src</string>
+						<string>../../../addons/ofxCv/libs/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/src</string>
 						<string>../../../addons/ofxCv/src</string>
 						<string>../../../addons/ofxGrt/src</string>
 						<string>../../../addons/ofxGrt/libs/grt</string>
@@ -11669,8 +11566,15 @@
 						<string>../../../addons/ofxCcv/libs/ccv/lib</string>
 						<string>../../../addons/ofxCcv/libs/ccv/lib/osx</string>
 						<string>../../../addons/ofxCcv/src</string>
-						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs</string>
+						<string>../../../addons/ofxCv/libs/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/src</string>
+						<string>../../../addons/ofxCv/libs/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/src</string>
 						<string>../../../addons/ofxCv/src</string>
 						<string>../../../addons/ofxGrt/src</string>
 						<string>../../../addons/ofxGrt/libs/grt</string>
@@ -11791,7 +11695,6 @@
 					<string>DBCB84A37F9AECC254870D79</string>
 					<string>DCED63D669BE81CC8B9CA108</string>
 					<string>46BF6D4214F1BBD2B7DB5103</string>
-					<string>BA4799B947DAF6111E7172A5</string>
 					<string>65675E06584524F8E5811290</string>
 					<string>EBFC88152FD78D14850D0F9C</string>
 					<string>AD8787E6852759D24ACAC32A</string>
@@ -11877,7 +11780,6 @@
 					<string>15BC020EB5C58741B4953EB8</string>
 					<string>80E8160DB656CCB7539EF10A</string>
 					<string>87DD428884D2B89AD6E977A6</string>
-					<string>7397AF6CD685E5D059B1616A</string>
 					<string>A04B0D7458BC6C1E8B07D653</string>
 					<string>AEE7CB695802EC4F97154810</string>
 					<string>8AF8C49DE7928099584726B3</string>
@@ -12027,8 +11929,15 @@
 						<string>../../../addons/ofxCcv/libs/ccv/lib</string>
 						<string>../../../addons/ofxCcv/libs/ccv/lib/osx</string>
 						<string>../../../addons/ofxCcv/src</string>
-						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs</string>
+						<string>../../../addons/ofxCv/libs/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/src</string>
+						<string>../../../addons/ofxCv/libs/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/src</string>
 						<string>../../../addons/ofxCv/src</string>
 						<string>../../../addons/ofxGrt/src</string>
 						<string>../../../addons/ofxGrt/libs/grt</string>
@@ -12097,7 +12006,7 @@
 					<key>INFOPLIST_FILE</key>
 					<string>openFrameworks-Info.plist</string>
 					<key>INSTALL_PATH</key>
-					<string>/Applications</string>
+					<string>$(HOME)/Applications</string>
 					<key>LIBRARY_SEARCH_PATHS</key>
 					<string>$(inherited)</string>
 					<key>PRODUCT_NAME</key>
@@ -12133,8 +12042,15 @@
 						<string>../../../addons/ofxCcv/libs/ccv/lib</string>
 						<string>../../../addons/ofxCcv/libs/ccv/lib/osx</string>
 						<string>../../../addons/ofxCcv/src</string>
-						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs</string>
+						<string>../../../addons/ofxCv/libs/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
+						<string>../../../addons/ofxCv/libs/CLD/src</string>
+						<string>../../../addons/ofxCv/libs/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/include/ofxCv</string>
+						<string>../../../addons/ofxCv/libs/ofxCv/src</string>
 						<string>../../../addons/ofxCv/src</string>
 						<string>../../../addons/ofxGrt/src</string>
 						<string>../../../addons/ofxGrt/libs/grt</string>
@@ -12201,7 +12117,7 @@
 					<key>INFOPLIST_FILE</key>
 					<string>openFrameworks-Info.plist</string>
 					<key>INSTALL_PATH</key>
-					<string>/Applications</string>
+					<string>$(HOME)/Applications</string>
 					<key>LIBRARY_SEARCH_PATHS</key>
 					<string>$(inherited)</string>
 					<key>PRODUCT_NAME</key>
@@ -12320,13 +12236,9 @@
 				<key>shellPath</key>
 				<string>/bin/sh</string>
 				<key>shellScript</key>
-				<string>mkdir -p "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/"
-# Copy default icon file into App/Resources
+				<string>rsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME";
+mkdir -p "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/"
 rsync -aved "$ICON_FILE" "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/"
-# Copy libfmod and change install directory for fmod to run
-rsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/";
-install_name_tool -change @executable_path/libfmodex.dylib @executable_path/../Frameworks/libfmodex.dylib "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME";
-# Copy GLUT framework (must remove for AppStore submissions)
 rsync -aved ../../../libs/glut/lib/osx/GLUT.framework "$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/"
 </string>
 			</dict>

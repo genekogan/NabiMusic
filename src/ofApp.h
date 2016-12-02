@@ -6,6 +6,10 @@
 #include "ofxGui.h"
 #include "ofxGrt.h"
 #include "ofxCcv.h"
+#include "ofxOsc.h"
+
+#define HOST "localhost"
+#define PORT 9000
 
 using namespace ofxCv;
 using namespace cv;
@@ -48,6 +52,8 @@ public:
     ofFbo fbo;
     ofxCvGrayscaleImage grayImage;
     ofxCvColorImage colorImage;
+    
+    ofxOscSender sender;
     
     ofxPanel gui;
     ofParameter<float> minArea, maxArea, threshold;

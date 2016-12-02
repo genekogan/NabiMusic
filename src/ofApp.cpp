@@ -15,7 +15,7 @@ void FoundSquare::draw() {
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetWindowShape(1600, 900);
-
+    
     width = 640;
     height = 480;
     
@@ -29,6 +29,8 @@ void ofApp::setup(){
     bSave.addListener(this, &ofApp::save);
     bLoad.addListener(this, &ofApp::load);
     trainingLabel.addListener(this, &ofApp::setTrainingLabel);
+    
+    sender.setup(HOST, PORT);
     
     gui.setup();
     gui.setName("CV");
@@ -62,13 +64,16 @@ void ofApp::setup(){
     isTrained = false;
     toAddSamples = false;
     toClassify = false;
-
+    
     trainingData.setNumDimensions(4096);
     AdaBoost adaboost;
     adaboost.enableNullRejection(false);
     adaboost.setNullRejectionCoeff(3);
     pipeline.setClassifier(adaboost);
-
+    
+    
+    //load on setup
+    load();
 }
 
 //--------------------------------------------------------------
@@ -91,7 +96,7 @@ void ofApp::update(){
         contourFinder.setThreshold(127);
         contourFinder.findContours(grayImage);
         contourFinder.setFindHoles(holes);
-    
+        
         // draw all contour bounding boxes to FBO
         fbo.begin();
         ofClear(0, 255);
@@ -126,14 +131,14 @@ void ofApp::update(){
             toClassify = false;
         }
     }
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofBackground(70);
     gui.draw();
-
+    
     ofPushMatrix();
     ofScale(0.75, 0.75);
     
@@ -145,7 +150,7 @@ void ofApp::draw(){
     ofDrawBitmapStringHighlight("original", 0, 0);
     ofPopMatrix();
     ofPopStyle();
-
+    
     // thresholded
     ofPushMatrix();
     ofPushStyle();
@@ -156,7 +161,7 @@ void ofApp::draw(){
     ofDrawBitmapStringHighlight("thresholded", 0, 0);
     ofPopMatrix();
     ofPopStyle();
-
+    
     // merged
     ofPushMatrix();
     ofPushStyle();
@@ -167,7 +172,7 @@ void ofApp::draw(){
     ofDrawBitmapStringHighlight("merged", 0, 0);
     ofPopMatrix();
     ofPopStyle();
-
+    
     ofPopMatrix();
     
     // draw tiles
@@ -230,6 +235,16 @@ void ofApp::trainClassifier() {
 
 //--------------------------------------------------------------
 void ofApp::classifyCurrentSamples() {
+    
+    int nInstruments = 4;
+    vector<int>instrumentCount;
+    vector<int>instrumentSum;
+    vector<float>instrumentArea; //Not implemented yet, waiting for Genes trick about effective area
+    
+    for (int i = 0; i< nInstruments; i++) {
+        instrumentSum.push_back(0);
+    }
+    
     ofLog(OF_LOG_NOTICE, "Classifiying "+ofToString(ofGetFrameNum()));
     gatherFoundSquares();
     for (int i=0; i<foundSquares.size(); i++) {
@@ -238,6 +253,50 @@ void ofApp::classifyCurrentSamples() {
         for (int i=0; i<encoding.size(); i++) inputVector[i] = encoding[i];
         if (pipeline.predict(inputVector)) {
             foundSquares[i].label = pipeline.getPredictedClassLabel();
+            
+            instrumentCount.push_back(pipeline.getPredictedClassLabel());
+        }
+    }
+    
+    
+    for(int i = 0; i < instrumentCount.size(); i++){
+        cout << "value of instrumentCount [" << i << "] = " << instrumentCount[i] << endl; //Print out the values of each classified instrument
+        instrumentSum[instrumentCount[i]]++; //Sum up the number of specific instruments (eg. the total number of drums)
+    }
+    
+    
+    for (int i = 0; i< instrumentSum.size(); i++) {
+        cout << "value of instrumentSum [" << i << "] = " << instrumentSum[i] << endl; //Print out the summed number of instruments of each type
+    }
+    
+    
+    //Send OSC messages to Ableton via liveOSC commands
+    for (int i = 0; i<nInstruments; i++) {
+        if (instrumentSum[i] > 0) {
+            
+            //Launch the clips
+            ofxOscMessage m;
+            m.setAddress("/live/play/clip");
+            m.addIntArg(i); //Set the track
+            m.addIntArg(instrumentSum[i]-1); //Set the clip
+            sender.sendMessage(m, false);
+            
+            //Set the track volume based on size of the instruments
+            ////Not implemented yet, waiting for Genes trick about effective area
+            float trackVol = 0.7; //Dummy value
+            ofxOscMessage m2;
+            m2.setAddress("/live/volume");
+            m2.addIntArg(i);
+            m2.addFloatArg(trackVol);
+            sender.sendMessage(m2, false);
+            
+            
+        }
+        else {
+            ofxOscMessage m;
+            m.setAddress("/live/stop/track");
+            m.addIntArg(i); //Set the track
+            sender.sendMessage(m, false);
         }
     }
 }
