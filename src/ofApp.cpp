@@ -9,7 +9,7 @@ void FoundSquare::draw() {
     }
     ofDrawBitmapStringHighlight(labelStr, 0, img.getHeight()+20);
     ofDrawBitmapStringHighlight("{"+ofToString(rect.x)+", "+ofToString(rect.y)+", "+ofToString(rect.width)+", "+ofToString(rect.height)+"}", 0, img.getHeight()+40);
-    ofDrawBitmapStringHighlight("area = "+ofToString(rect.width*rect.height), 0, img.getHeight()+60);
+    ofDrawBitmapStringHighlight("area = "+ofToString(area), 0, img.getHeight()+60);
 }
 
 //--------------------------------------------------------------
@@ -19,7 +19,7 @@ void ofApp::setup(){
     width = 640;
     height = 480;
     
-    cam.setDeviceID(0);
+    cam.setDeviceID(1);
     cam.setup(width, height);
     ccv.setup("image-net-2012.sqlite3");
     
@@ -202,6 +202,7 @@ void ofApp::gatherFoundSquares() {
     for (int i=0; i<contourFinder2.size(); i++) {
         FoundSquare fs;
         fs.rect = contourFinder2.getBoundingRect(i);
+        fs.area = contourFinder2.getContourArea(i);
         fs.img.setFromPixels(cam.getPixels());
         fs.img.crop(fs.rect.x, fs.rect.y, fs.rect.width, fs.rect.height);
         fs.img.resize(224, 224);
@@ -235,55 +236,46 @@ void ofApp::trainClassifier() {
 
 //--------------------------------------------------------------
 void ofApp::classifyCurrentSamples() {
-    
     int nInstruments = 4;
     vector<int>instrumentCount;
-    vector<int>instrumentSum;
-    vector<float>instrumentArea; //Not implemented yet, waiting for Genes trick about effective area
+    vector<float>instrumentArea;
     
     for (int i = 0; i< nInstruments; i++) {
-        instrumentSum.push_back(0);
+        instrumentCount.push_back(0);
+        instrumentArea.push_back(0);
     }
     
     ofLog(OF_LOG_NOTICE, "Classifiying "+ofToString(ofGetFrameNum()));
     gatherFoundSquares();
+    float maxArea = 0.0;
     for (int i=0; i<foundSquares.size(); i++) {
         vector<float> encoding = ccv.encode(foundSquares[i].img, ccv.numLayers()-1);
         VectorFloat inputVector(encoding.size());
         for (int i=0; i<encoding.size(); i++) inputVector[i] = encoding[i];
         if (pipeline.predict(inputVector)) {
-            foundSquares[i].label = pipeline.getPredictedClassLabel();
-            
-            instrumentCount.push_back(pipeline.getPredictedClassLabel());
+            int label = pipeline.getPredictedClassLabel();
+            foundSquares[i].label = label;
+            instrumentCount[label]++;
+            instrumentArea[label] = max(instrumentArea[label], foundSquares[i].area);
+            maxArea = max(maxArea, foundSquares[i].area);
         }
-    }
-    
-    
-    for(int i = 0; i < instrumentCount.size(); i++){
-        cout << "value of instrumentCount [" << i << "] = " << instrumentCount[i] << endl; //Print out the values of each classified instrument
-        instrumentSum[instrumentCount[i]]++; //Sum up the number of specific instruments (eg. the total number of drums)
-    }
-    
-    
-    for (int i = 0; i< instrumentSum.size(); i++) {
-        cout << "value of instrumentSum [" << i << "] = " << instrumentSum[i] << endl; //Print out the summed number of instruments of each type
     }
     
     
     //Send OSC messages to Ableton via liveOSC commands
     for (int i = 0; i<nInstruments; i++) {
-        if (instrumentSum[i] > 0) {
+        if (instrumentCount[i] > 0) {
             
             //Launch the clips
             ofxOscMessage m;
             m.setAddress("/live/play/clip");
             m.addIntArg(i); //Set the track
-            m.addIntArg(instrumentSum[i]-1); //Set the clip
+            m.addIntArg(instrumentCount[i]-1); //Set the clip
             sender.sendMessage(m, false);
             
             //Set the track volume based on size of the instruments
             ////Not implemented yet, waiting for Genes trick about effective area
-            float trackVol = 0.7; //Dummy value
+            float trackVol = 0.75*instrumentArea[i]/maxArea;  //Dummy value
             ofxOscMessage m2;
             m2.setAddress("/live/volume");
             m2.addIntArg(i);

@@ -22,6 +22,7 @@ struct FoundSquare {
     ofImage img;
     int label = -1;
     cv::Rect rect;
+    float area;
     void draw();
 };
 
